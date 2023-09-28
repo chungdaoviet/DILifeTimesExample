@@ -1,0 +1,33 @@
+﻿@using DILifeTimesExample.Services;
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+@model LifeTimeModel
+
+@inject ISingletonService singletonService
+@inject IScopedService scopedService
+@inject ITransientService transientService
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+
+    <h2>Singleton</h2>
+    <p>Time: @Model.SingletonTime</p>
+
+    <h2>Singleton 2</h2>
+    <p>Time: @singletonService.Time</p>
+
+    <h2>Scoped</h2>
+    <p>Time: @Model.ScopedTime</p>
+
+    <h2>Scoped 2</h2>
+    <p>Time: @scopedService.Time</p>
+
+    <h2>Transient</h2>
+    <p>Time: @Model.TransientTime</p>
+
+    <h2>Transient 2</h2>
+    <p>Time: @transientService.Time</p>
+</div>
